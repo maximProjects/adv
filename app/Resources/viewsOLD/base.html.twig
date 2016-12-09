@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets combine=false
+        '@AppBundle/Resources/public/css/style.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+</head>
+<body>
+{% block content %}{% endblock %}
+{% block javascripts %}
+    {% javascripts combine=true
+    '@AppBundle/Resources/public/js/test.js'
+    %}
+
+    <script src="{{  asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+</body>
+</html>
